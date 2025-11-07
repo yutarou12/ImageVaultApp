@@ -1,3 +1,9 @@
+node_modules/
+dist/
+uploads/
+data/
+*.local
+*.log
 # Logs
 logs
 *.log
