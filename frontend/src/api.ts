@@ -1,7 +1,7 @@
 import axios from "axios";
 
 export interface ImageMeta {
-  id: string; // local id or google drive file id
+  id: string; // local id or R2 object key
   name: string;
   mimeType: string;
   size: number;
@@ -9,12 +9,13 @@ export interface ImageMeta {
 }
 
 const api = axios.create({
-  baseURL: "/api",
+  baseURL: "http://localhost:3000/api",
   withCredentials: false,
 });
 
 export async function listImages(): Promise<ImageMeta[]> {
   const r = await api.get("/images");
+  console.log("listImages response:", r.data);
   return r.data;
 }
 
